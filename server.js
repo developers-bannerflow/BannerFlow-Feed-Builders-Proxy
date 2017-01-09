@@ -20,7 +20,7 @@ app.post('/proxy', function (proxyReq, proxyRes) {
     host: proxyHost,
     path: proxyPath,
     headers: proxyHeaders,
-    timeout: 30000
+    timeout: 10000
   };
 
   var req = http.request(options, (res) => {
