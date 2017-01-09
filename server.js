@@ -7,7 +7,7 @@ var app = express();
 app.use(bodyParser.json());
 
 
-app.get('/test', function (req, res) {
+app.get('/', function (req, res) {
   res.send('BannerFlow-Feed-Builder-Proxy');
 })
 
