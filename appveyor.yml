@@ -1,0 +1,12 @@
+install:
+  - npm install
+  - 7z a Artifacts\BannerFlowFeedBuildersProxy.zip %APPVEYOR_BUILD_FOLDER%\Publish\*
+artifacts:
+- path: Artifacts\**\*.zip
+deploy:
+- provider: Environment
+  name: BannerFlow-Feed-Builder-Linux-Proxy-EU-West
+  on:
+    branch: master
+# Don't actually build.
+build: off
