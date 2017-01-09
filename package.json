@@ -1,0 +1,13 @@
+{
+  "name": "bannerflow-feed-builders-proxy",
+  "version": "0.0.1",
+  "description": "Simple app for proxy requests",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "developers@bannerflow.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
