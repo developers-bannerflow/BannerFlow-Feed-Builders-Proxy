@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 
 app.get('/test', function (req, res) {
-  res.send('Hello World');
+  res.send('BannerFlow-Feed-Builder-Proxy');
 })
 
 app.post('/proxy', function (proxyReq, proxyRes) {
