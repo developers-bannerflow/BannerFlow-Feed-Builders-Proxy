@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http');
+var https = require('https');
 
 var port = process.env.PORT || 3000;
 var app = express();
@@ -15,6 +16,7 @@ app.post('/proxy', function (proxyReq, proxyRes) {
   var proxyHost = proxyReq.body.host;
   var proxyPath = proxyReq.body.path;
   var proxyHeaders = proxyReq.body.headers;
+  var protocol = proxyReq.body.protocol;
 
   var options = {
     host: proxyHost,
@@ -23,7 +25,12 @@ app.post('/proxy', function (proxyReq, proxyRes) {
     timeout: 10000
   };
 
-  var req = http.request(options, (res) => {
+  var client = http;
+
+  if (protocol && protocol.toLowerCase() === 'https')
+    client = https;
+
+  var req = client.request(options, (res) => {
     var responseData = '';
     res.setEncoding('utf8');
     res.on('data', (chunk) => {
